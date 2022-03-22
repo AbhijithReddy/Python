@@ -58,7 +58,7 @@ def both_ends(s):
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
   # +++your code here+++
-  return
+  return s[0]+ s[1:].replace(s[0], '*')
 
 
 # D. MixUp
@@ -93,20 +93,20 @@ def main():
   # test(donuts(10), 'Number of donuts: many')
   # test(donuts(99), 'Number of donuts: many')
 
-  print
-  print 'both_ends'
-  test(both_ends('spring'), 'spng')
-  test(both_ends('Hello'), 'Helo')
-  test(both_ends('a'), '')
-  test(both_ends('xyz'), 'xyyz')
+  # print
+  # print 'both_ends'
+  # test(both_ends('spring'), 'spng')
+  # test(both_ends('Hello'), 'Helo')
+  # test(both_ends('a'), '')
+  # test(both_ends('xyz'), 'xyyz')
 
   
-  # print
-  # print 'fix_start'
-  # test(fix_start('babble'), 'ba**le')
-  # test(fix_start('aardvark'), 'a*rdv*rk')
-  # test(fix_start('google'), 'goo*le')
-  # test(fix_start('donut'), 'donut')
+  print
+  print 'fix_start'
+  test(fix_start('babble'), 'ba**le')
+  test(fix_start('aardvark'), 'a*rdv*rk')
+  test(fix_start('google'), 'goo*le')
+  test(fix_start('donut'), 'donut')
 
   # print
   # print 'mix_up'
