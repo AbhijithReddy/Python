@@ -37,7 +37,9 @@ def match_ends(words):
 # before combining them.
 def front_x(words):
   # +++your code here+++
-  return
+  x_list = [element for element in words if element[0] == 'x']
+  y_list = [element for element in words if element not in x_list]
+  return sorted(x_list) + sorted(y_list)
 
 
 
@@ -49,7 +51,9 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
   # +++your code here+++
-  return
+  def SelectLast(s):
+    return s[-1]
+  return sorted(tuples, key=SelectLast)
 
 
 # Simple provided test() function used in main() to print
@@ -64,29 +68,29 @@ def test(got, expected):
 
 # Calls the above functions with interesting inputs.
 def main():
-  print 'match_ends'
-  test(match_ends(['aba', 'xyz', 'aa', 'x', 'bbb']), 3)
-  test(match_ends(['', 'x', 'xy', 'xyx', 'xx']), 2)
-  test(match_ends(['aaa', 'be', 'abc', 'hello']), 1)
+  # print 'match_ends'
+  # test(match_ends(['aba', 'xyz', 'aa', 'x', 'bbb']), 3)
+  # test(match_ends(['', 'x', 'xy', 'xyx', 'xx']), 2)
+  # test(match_ends(['aaa', 'be', 'abc', 'hello']), 1)
 
-  # print
-  # print 'front_x'
-  # test(front_x(['bbb', 'ccc', 'axx', 'xzz', 'xaa']),
-  #      ['xaa', 'xzz', 'axx', 'bbb', 'ccc'])
-  # test(front_x(['ccc', 'bbb', 'aaa', 'xcc', 'xaa']),
-  #      ['xaa', 'xcc', 'aaa', 'bbb', 'ccc'])
-  # test(front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']),
-  #      ['xanadu', 'xyz', 'aardvark', 'apple', 'mix'])
+  print
+  print 'front_x'
+  test(front_x(['bbb', 'ccc', 'axx', 'xzz', 'xaa']),
+       ['xaa', 'xzz', 'axx', 'bbb', 'ccc'])
+  test(front_x(['ccc', 'bbb', 'aaa', 'xcc', 'xaa']),
+       ['xaa', 'xcc', 'aaa', 'bbb', 'ccc'])
+  test(front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']),
+       ['xanadu', 'xyz', 'aardvark', 'apple', 'mix'])
 
        
-  # print
-  # print 'sort_last'
-  # test(sort_last([(1, 3), (3, 2), (2, 1)]),
-  #      [(2, 1), (3, 2), (1, 3)])
-  # test(sort_last([(2, 3), (1, 2), (3, 1)]),
-  #      [(3, 1), (1, 2), (2, 3)])
-  # test(sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)]),
-  #      [(2, 2), (1, 3), (3, 4, 5), (1, 7)])
+  print
+  print 'sort_last'
+  test(sort_last([(1, 3), (3, 2), (2, 1)]),
+       [(2, 1), (3, 2), (1, 3)])
+  test(sort_last([(2, 3), (1, 2), (3, 1)]),
+       [(3, 1), (1, 2), (2, 3)])
+  test(sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)]),
+       [(2, 2), (1, 3), (3, 4, 5), (1, 7)])
 
 
 if __name__ == '__main__':
